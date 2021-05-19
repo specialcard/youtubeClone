@@ -14,6 +14,7 @@ function RightMenu(props) {
     axios.get(`${USER_SERVER}/logout`).then(response => {
       if (response.status === 200) {
         props.history.push("/login");
+        window.localStorage.removeItem('userId');
       } else {
         alert('Log Out Failed')
       }
@@ -24,10 +25,10 @@ function RightMenu(props) {
     return (
       <Menu mode={props.mode}>
         <Menu.Item key="mail">
-          <Link to="/login">Signin</Link>
+          <Link to="/login">로그인</Link>
         </Menu.Item>
         <Menu.Item key="app">
-          <Link to="/register">Signup</Link>
+          <Link to="/register">회원가입</Link>
         </Menu.Item>
       </Menu>
     )
@@ -35,10 +36,10 @@ function RightMenu(props) {
     return (
       <Menu mode={props.mode}>
         <Menu.Item key="upload">
-          <Link to="/video/upload">Video</Link>
+          <Link to="/video/upload">비디오업로드</Link>
         </Menu.Item>
         <Menu.Item key="logout">
-          <a onClick={logoutHandler}>Logout</a>
+          <a onClick={logoutHandler}>로그아웃</a>
         </Menu.Item>
       </Menu>
     )

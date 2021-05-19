@@ -33,7 +33,7 @@ function LandingPage() {
         var seconds = Math.floor((video.duration - minutes * 60))
 
     
-        return <Col lg={6} md={8} xs={24} key={index} style={{margin: '0 5px'}}>
+        return <Col lg={6} md={8} xs={24} key={index} style={{boxSizing: 'border-box' , padding: '0 3px'}}>
             <div style={{ position: 'relative' }}>
                 <Link to={`/video/${video._id}`}>
                     <img style={{ width: '100%' }} alt="thumbnail" src={`http://localhost:5000/${video.thumbnail}`} />
@@ -62,7 +62,7 @@ function LandingPage() {
 
     return (
         <div style={{width: '85%', margin: '3rem auto'}}>
-            <Title level={2}> Recommended </Title>
+            <Title level={2} style={{color: 'white'}}> Videos </Title>
             <hr />
             {renderCards}
         </div>
